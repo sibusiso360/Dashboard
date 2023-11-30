@@ -3,49 +3,140 @@
 }
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dashboard</h1>
-                </div>
+                    <h1 class="m-0">@ViewData["title"]</h1>
+                </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Users</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">@ViewData["title"]</li>
                     </ol>
-                </div>
-            </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
         </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
-    <!-- Main content -->
     <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-header">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Add New Role</button>
+                        </div>
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Last Seen</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Title</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
+                                    @{
+                                        foreach (var user in Model)
+                                        {
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>@user.Email</td>
+                                                <td>@user.PhoneNumber</td>
+                                                <td></td>
+                                                <td>
+                                                   
+                                                    <form method="post" asp-action="" asp-controller="">
+                                                        <input type="hidden" name="id" value="@user.Id">
+                                                        <button class="btn btn-primary">Details</button>
+                                                        <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#modal-Update"> Edit</button>
+                                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
+                <!-- /.col -->
             </div>
-            <div class="card-body">
-                Start creating your amazing application!
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                Footer
-            </div>
-            <!-- /.card-footer-->
+            <!-- /.row -->
         </div>
-        <!-- /.card -->
+        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Role</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-controller="" asp-action="" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Role Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Role name" name="name" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="submit">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <div class="modal fade" id="modal-Update">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Role Role</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-controller="" asp-action="" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" id="0" name="Id">
+                            <label>Role Name</label>
+                            <input id="1" type="text" class="form-control" placeholder="Enter Role name" name="name" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="submit">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>
 <!-- /.content-wrapper -->
