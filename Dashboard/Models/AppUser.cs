@@ -24,5 +24,7 @@ namespace Dashboard.Models
         [DisplayName("Last Seen")]
         public DateTime LastSeen { get; set; }
 
+        public string? RoleId { get; set; }
+
     }
 }

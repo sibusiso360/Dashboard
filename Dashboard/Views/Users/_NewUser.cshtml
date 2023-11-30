@@ -1,0 +1,64 @@
+﻿<div class="modal fade" id="modalNewUser">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New User</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form method="post" asp-controller="Users" asp-action="Create">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" name="FirstName" class="form-control" id="UserEmail" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="LastName">Last Name</label>
+                        <input type="text" name="LastName" class="form-control" id="LastName" placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Gender">Gender</label>
+                        <select name="Gender" class="form-control" id="Gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber">Phone Number</label>
+                        <input type="number" name="PhoneNumber" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" name="email" class="form-control" id="UserEmail" placeholder="Enter email">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="modal-footer justify-content-between">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+            <!--
+
+            <form asp-controller="" asp-action="" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" id="0" name="Id">
+                        <label>Role Name</label>
+                        <input id="1" type="text" class="form-control" placeholder="Enter Role name" name="name" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="submit">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+            -->
+           
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
