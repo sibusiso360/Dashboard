@@ -27,7 +27,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Add New Role</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNewUser">Add New Role</button>
                         </div>
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -39,6 +39,7 @@
                                         <th>Email</th>
                                         <th>Phone Number</th>
                                         <th>Last Seen</th>
+                                        <th>Role</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -48,11 +49,12 @@
                                         foreach (var user in Model)
                                         {
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>@user.FirstName</td>
+                                                <td>@user.LastName</td>
+                                                <td>@user.Gender</td>
                                                 <td>@user.Email</td>
                                                 <td>@user.PhoneNumber</td>
+                                                <td>@user.LastSeen</td>
                                                 <td></td>
                                                 <td>
                                                    
@@ -109,34 +111,7 @@
     </div>
     <!-- /.modal -->
 
-
-    <div class="modal fade" id="modal-Update">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Role Role</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form asp-controller="" asp-action="" method="post">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input type="hidden" id="0" name="Id">
-                            <label>Role Name</label>
-                            <input id="1" type="text" class="form-control" placeholder="Enter Role name" name="name" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name="submit">Save</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+    <partial name="_NewUser"/>
     <!-- /.modal -->
 </div>
 <!-- /.content-wrapper -->
