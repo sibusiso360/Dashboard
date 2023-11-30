@@ -78,6 +78,7 @@ using (var scope = app.Services.CreateScope())
 
         await userManager.CreateAsync(user,rootPassword);
         await userManager.AddToRoleAsync(user,"Root"); 
+        using Microsoft.Extensions.Logging;
     } 
 }
 
