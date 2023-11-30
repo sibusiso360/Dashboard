@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using Microsoft.Extensions.Logging;
 
 namespace Dashboard.Controllers
 {
