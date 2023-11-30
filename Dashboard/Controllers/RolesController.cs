@@ -8,7 +8,7 @@ namespace Dashboard.Controllers
 {
     public class RolesController : Controller
     {
-        RoleManager<IdentityRole> roleManager;
+        readonly RoleManager<IdentityRole> roleManager;
 
         public RolesController(RoleManager<IdentityRole> roleManager)
         {

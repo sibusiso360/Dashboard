@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Dashboard.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dashboard.Controllers
 {
     public class UsersController : Controller
     {
-        UserManager<IdentityUser> userManager;
+        UserManager<AppUser> userManager;
 
-        public UsersController(UserManager<IdentityUser> userManager)
+        public UsersController(UserManager<AppUser> userManager)
         {
             this.userManager = userManager;
         }

@@ -1,4 +1,5 @@
 using Dashboard.Data;
+using Dashboard.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -57,7 +58,7 @@ using(var scope = app.Services.CreateScope())
 //seeding the root user account 
 using (var scope = app.Services.CreateScope())
 {
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
     string rootEmail = "root@root.app";
     string rootPassword = "P@55word";
@@ -66,7 +67,11 @@ using (var scope = app.Services.CreateScope())
 
     if (await userManager.FindByEmailAsync(rootEmail) == null)
     {
-        var user = new IdentityUser();
+        var user = new AppUser();
+        user.FirstName = "Root";
+        user.LastName = "Root";
+        user.Gender = "Male";
+        user.LastSeen = DateTime.Now;
         user.UserName = rootEmail;
         user.Email = rootEmail;
         user.EmailConfirmed = true; 
