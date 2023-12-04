@@ -44,30 +44,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @{
+                                    foreach (var user in Model)
+                                    {
+                                        <tr>
+                                            <td>@user.FirstName</td>
+                                            <td>@user.LastName</td>
+                                            <td>@user.Gender</td>
+                                            <td>@user.Email</td>
+                                            <td>@user.PhoneNumber</td>
+                                            <td>@user.LastSeen</td>
+                                            <td></td>
+                                            <td>
+                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalNewUser"
+                                                    onclick="UsersUpdateModalValues('@user.Id','@user.FirstName','@user.LastName','@user.Gender','@user.PhoneNumber','@user.Email')">
+                                                    Update
+                                                </button>
 
-                                    @{
-                                        foreach (var user in Model)
-                                        {
-                                            <tr>
-                                                <td>@user.FirstName</td>
-                                                <td>@user.LastName</td>
-                                                <td>@user.Gender</td>
-                                                <td>@user.Email</td>
-                                                <td>@user.PhoneNumber</td>
-                                                <td>@user.LastSeen</td>
-                                                <td></td>
-                                                <td>
-                                                   
-                                                    <form method="post" asp-action="" asp-controller="">
-                                                        <input type="hidden" name="id" value="@user.Id">
-                                                        <button class="btn btn-primary">Details</button>
-                                                        <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#modal-Update"> Edit</button>
-                                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        }
+                                                <form method="post" asp-action="Delete" asp-controller="Users">
+                                                    <input type="hidden" id="id" name="id" value="@user.Id">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     }
+                                }
                                 </tbody>
                             </table>
                         </div>

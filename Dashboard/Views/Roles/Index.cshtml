@@ -48,15 +48,14 @@
                                         <tr>                                               
                                             <td>@role.Name</td>
                                             <td>
-                                                    
+                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modal-Update"
+                                                        onclick="updateModalValues('@role.Id','@role.Name')">
+                                                    Update
+                                                </button>
+
                                                 <form method="post" asp-action="Delete" asp-controller="Roles">                                                     
-                                                    <input type="hidden" name="id" value="@role.Id">
-                                                    <button class="btn btn-warning" data-toggle="modal" data-target="#modal-Update" 
-                                                        onclick="updateModalValues('@role.Id','@role.Name')"> 
-                                                        Update
-                                                    </button>
-                                                    <button type="submit" class="btn btn-danger">Delete</button>                
-                                                    
+                                                    <input type="hidden" name="id" value="@role.Id">                                                    
+                                                    <button type="submit" class="btn btn-danger">Delete</button>                                                    
                                                 </form>                                                    
                                             </td>
                                         </tr>
@@ -115,10 +114,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <form asp-controller="Roles" asp-action="Update" method="post">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="hidden" id="0" name="Id">
+                            <input type="hidden" id="" name="Id">
                             <label>Role Name</label>
                             <input id="1" type="text" class="form-control" placeholder="Enter Role name" name="name" />
                         </div>

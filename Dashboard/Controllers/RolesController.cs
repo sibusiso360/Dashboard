@@ -41,11 +41,9 @@ namespace Dashboard.Controllers
         public async Task<IActionResult> Delete(IdentityRole role)
         {
             var Role = await roleManager.FindByIdAsync(role.Id);
-
            
             if (ModelState.IsValid)
-            {
-               
+            {               
                 await roleManager.DeleteAsync(Role);
             }            
 
@@ -56,7 +54,6 @@ namespace Dashboard.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(IdentityRole role)
         {
-
             var Role = await roleManager.FindByIdAsync(role.Id);            
            
             if (ModelState.IsValid)

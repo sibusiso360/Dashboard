@@ -64,23 +64,24 @@ namespace Dashboard.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(AppUser user)
         {
+            //Handle Null Users! 
+            //Update User role. 
 
             var User = await userManager.FindByIdAsync(user.Id);
-            var Role = await roleManager.FindByIdAsync(user.RoleId);
+            //var Role = await roleManager.
 
             if (ModelState.IsValid)
             {
                 User.FirstName = user.FirstName;
                 User.LastName = user.LastName;
-                User.Email = user.Email;
+                //User.Email = user.Email;
                 User.UserName = user.Email;
                 User.LastSeen = DateTime.Now;
                 User.Gender = user.Gender;
                 User.PhoneNumber = user.PhoneNumber;
-
                 
                 await userManager.UpdateAsync(User);
-                await userManager.AddToRoleAsync(User, Role.Id);
+                //await userManager.AddToRoleAsync(User, user.RoleId);
             }
 
             return RedirectToAction("Index");

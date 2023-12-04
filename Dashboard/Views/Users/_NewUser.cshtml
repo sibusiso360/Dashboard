@@ -8,32 +8,33 @@
                 </button>
             </div>
 
-            <form method="post" asp-controller="Users" asp-action="Create">
+            <form method="post" asp-controller="Users" asp-action="Update">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="FirstName">First Name</label>
-                        <input type="text" name="FirstName" class="form-control" id="UserEmail" placeholder="Enter Name">
+                        <input type="text" name="FirstName" class="form-control" id="NewUserFirstName" placeholder="Enter Name">
                     </div>
                     <div class="form-group">
                         <label for="LastName">Last Name</label>
-                        <input type="text" name="LastName" class="form-control" id="LastName" placeholder="Enter Last Name">
+                        <input type="text" name="LastName" class="form-control" id="NewUserLastName" placeholder="Enter Last Name">
                     </div>
                     <div class="form-group">
                         <label for="Gender">Gender</label>
-                        <select name="Gender" class="form-control" id="Gender">
+                        <select name="Gender" class="form-control" id="NewUserGender">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="PhoneNumber">Phone Number</label>
-                        <input type="number" name="PhoneNumber" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number">
+                        <input type="number" name="PhoneNumber" class="form-control" id="NewUserPhoneNumber" placeholder="Enter Phone Number">
                     </div>
                     <div class="form-group">
                         <label for="Email">Email address</label>
-                        <input type="email" name="email" class="form-control" id="UserEmail" placeholder="Enter email">
+                        <input type="email" name="Email" class="form-control" id="NewUserEmail" placeholder="Enter email">
                     </div>
                 </div>
+                <input type="hidden" name="Id" class="form-control" id="NewUserid">
                 <!-- /.card-body -->
                 <div class="modal-footer justify-content-between">
                     <button type="submit" class="btn btn-success">Save</button>
