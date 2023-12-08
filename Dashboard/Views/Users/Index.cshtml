@@ -27,7 +27,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNewUser">Add New Role</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNewUser"> New User</button>
                         </div>
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -55,14 +55,14 @@
                                             <td>@user.PhoneNumber</td>
                                             <td>@user.LastSeen</td>
                                             <td></td>
-                                            <td>
-                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalNewUser"
-                                                    onclick="UsersUpdateModalValues('@user.Id','@user.FirstName','@user.LastName','@user.Gender','@user.PhoneNumber','@user.Email')">
-                                                    Update
-                                                </button>
+                                            <td>                                              
 
                                                 <form method="post" asp-action="Delete" asp-controller="Users">
                                                     <input type="hidden" id="id" name="id" value="@user.Id">
+                                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalNewUser"
+                                                                onclick="UsersUpdateModalValues('@user.Id','@user.FirstName','@user.LastName','@user.Gender','@user.PhoneNumber','@user.Email')">
+                                                            Edit
+                                                        </button>
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
                                             </td>
