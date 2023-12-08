@@ -5,14 +5,12 @@ function updateModalValues(id,name)
     var NAME = document.getElementById("1");
 
     ID.setAttribute("Value", id);
-    NAME.setAttribute("Value", name)
-
-    console.log(ID, name);
-
+    NAME.setAttribute("Value", name);
 }
 
 
-function UsersUpdateModalValues(id, FirstName, LastName, Gender, PhoneNumber, Email) {
+function UsersUpdateModalValues(id, FirstName, LastName, Gender, PhoneNumber, Email)
+{
     var ID = document.getElementById("NewUserid");
     var FIRSTNAME = document.getElementById("NewUserFirstName");
     var LASTNAME = document.getElementById("NewUserLastName");
@@ -26,6 +24,5 @@ function UsersUpdateModalValues(id, FirstName, LastName, Gender, PhoneNumber, Em
     GENDER.setAttribute("Value", Gender);
     PHONE.setAttribute("Value", PhoneNumber);
     EMAIL.setAttribute("Value", Email);
-
 }
 
