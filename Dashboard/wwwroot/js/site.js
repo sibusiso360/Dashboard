@@ -26,3 +26,8 @@ function UsersUpdateModalValues(id, FirstName, LastName, Gender, PhoneNumber, Em
     EMAIL.setAttribute("Value", Email);
 }
 
+function logOut()
+{
+    var logOutForm = document.getElementById("logOut");
+    logOutForm.submit();
+}
