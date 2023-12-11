@@ -12,9 +12,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
+    .AddRoles<IdentityRole>()   
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
+    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
